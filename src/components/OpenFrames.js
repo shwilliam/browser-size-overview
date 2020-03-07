@@ -1,5 +1,5 @@
 import React from 'react'
-import {Frame, SizeForm} from './index'
+import {Frame} from './index'
 import {useBrowserWindows} from '../hooks'
 
 const OpenFrames = () => {
@@ -11,8 +11,7 @@ const OpenFrames = () => {
     <ul className="frame__list">
       {openWindows?.map((opts, i) => (
         <li key={i} className="frame__container">
-          <SizeForm idx={i} size={opts.windows} />
-          <Frame src={activeUrl} {...opts} />
+          <Frame idx={i} src={activeUrl} {...opts} />
         </li>
       ))}
     </ul>

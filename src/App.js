@@ -6,13 +6,13 @@ import {ActiveUrlForm, OpenFrames, NewWindowButton} from './components'
 const App = () => (
   <div className="site">
     <BrowserWindowContextProvider>
-      <header>
+      <header className="site__header">
         <h1>Browser size overview</h1>
         <ActiveUrlForm />
+        <NewWindowButton />
       </header>
 
-      <main>
-        <NewWindowButton />
+      <main className="site__main">
         <OpenFrames />
       </main>
     </BrowserWindowContextProvider>
