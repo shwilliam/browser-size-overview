@@ -3,16 +3,7 @@ import React, {createContext, useState} from 'react'
 const BrowserWindowContext = createContext({})
 
 const BrowserWindowContextProvider = ({children}) => {
-  const [openWindows, setOpenWindows] = useState([
-    {
-      width: 200,
-      height: 300,
-    },
-    {
-      width: 600,
-      height: 300,
-    },
-  ])
+  const [openWindows, setOpenWindows] = useState()
   const [activeUrl, setActiveUrl] = useState()
 
   return (

@@ -3,5 +3,13 @@ import Frame from './Frame'
 import OpenFrames from './OpenFrames'
 import SizeForm from './SizeForm'
 import NewWindowButton from './NewWindowButton'
+import DeviceSelect from './DeviceSelect'
 
-export {ActiveUrlForm, Frame, OpenFrames, SizeForm, NewWindowButton}
+export {
+  ActiveUrlForm,
+  Frame,
+  OpenFrames,
+  SizeForm,
+  NewWindowButton,
+  DeviceSelect,
+}
