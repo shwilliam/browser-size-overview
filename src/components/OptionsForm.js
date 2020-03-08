@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useBrowserWindows} from '../hooks'
 
-const DeviceSelect = () => {
+const OptionsForm = () => {
   const {
     openWindows,
     setOpenWindows,
@@ -9,7 +9,7 @@ const DeviceSelect = () => {
     DEVICES,
   } = useBrowserWindows()
   const [selected, setSelected] = useState([])
-  const [urlInput, setUrlInput] = useState('')
+  const [urlInput, setUrlInput] = useState('http://localhost:8080/')
 
   const handleChange = e => setUrlInput(e.target.value)
 
@@ -64,4 +64,4 @@ const DeviceSelect = () => {
   )
 }
 
-export default DeviceSelect
+export default OptionsForm

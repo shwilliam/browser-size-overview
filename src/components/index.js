@@ -3,7 +3,7 @@ import Frame from './Frame'
 import OpenFrames from './OpenFrames'
 import SizeForm from './SizeForm'
 import NewWindowButton from './NewWindowButton'
-import DeviceSelect from './DeviceSelect'
+import OptionsForm from './OptionsForm'
 
 export {
   ActiveUrlForm,
@@ -11,5 +11,5 @@ export {
   OpenFrames,
   SizeForm,
   NewWindowButton,
-  DeviceSelect,
+  OptionsForm,
 }

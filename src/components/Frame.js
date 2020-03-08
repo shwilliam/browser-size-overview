@@ -2,13 +2,37 @@ import React, {useState} from 'react'
 import SizeForm from './SizeForm'
 import {useBrowserWindows} from '../hooks'
 
-const Frame = ({idx, src, width, height}) => {
+const Frame = ({idx, src, name, width, height}) => {
   const {setOpenWindows} = useBrowserWindows()
   const [isEditingDimensions, setIsEditingDimensions] = useState(false)
   const toggleDimensionsForm = () => setIsEditingDimensions(s => !s)
 
   return (
     <>
+      <section>
+        <p className="frame__device-name">{name || 'Custom'}</p>
+
+        <div className="frame__info">
+          {isEditingDimensions ? (
+            <SizeForm idx={idx} onSubmit={toggleDimensionsForm} />
+          ) : (
+            <>
+              <p>
+                {width}px x {height}px
+              </p>
+            </>
+          )}
+
+          <button
+            class="frame__edit-btn"
+            type="button"
+            onClick={toggleDimensionsForm}
+          >
+            {isEditingDimensions ? 'Cancel' : 'Edit'}
+          </button>
+        </div>
+      </section>
+
       <div className="frame__window-container">
         <iframe
           title="Demo window"
@@ -19,20 +43,6 @@ const Frame = ({idx, src, width, height}) => {
           frameBorder="0"
         />
       </div>
-
-      <section className="frame__info">
-        {isEditingDimensions ? (
-          <SizeForm idx={idx} />
-        ) : (
-          <p>
-            {width}px x {height}px
-          </p>
-        )}
-
-        <button type="button" onClick={toggleDimensionsForm}>
-          {isEditingDimensions ? 'Cancel' : 'Edit'}
-        </button>
-      </section>
     </>
   )
 }

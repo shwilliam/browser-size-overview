@@ -3,7 +3,7 @@ import {useBrowserWindows} from '../hooks'
 
 const STEP_SIZE = 10
 
-const SizeForm = ({idx}) => {
+const SizeForm = ({idx, onSubmit}) => {
   const {openWindows, setOpenWindows} = useBrowserWindows()
 
   const [widthInput, setWidthInput] = useState(openWindows[idx]?.width)
@@ -21,6 +21,8 @@ const SizeForm = ({idx}) => {
 
       return sCopy
     })
+
+    onSubmit()
   }
 
   const incrementWidth = () => setWidthInput(s => s + STEP_SIZE)
@@ -30,14 +32,15 @@ const SizeForm = ({idx}) => {
 
   return (
     <form className="frame__dimensions-form" onSubmit={handleSubmit}>
-      <label>
-        Width:
+      <label className="frame__dimensions-label">
+        <p className="sr-only">Width</p>
         <input
           className="frame__dimensions-input"
           value={widthInput}
           onChange={e => setWidthInput(e.target.value)}
           type="text"
         />
+
         <button type="button" onClick={incrementWidth} aria-hidden>
           +
         </button>
@@ -45,15 +48,16 @@ const SizeForm = ({idx}) => {
           -
         </button>
       </label>
-
-      <label>
-        Height:
+      x
+      <label className="frame__dimensions-label">
+        <p className="sr-only">Height</p>
         <input
           className="frame__dimensions-input"
           value={heightInput}
           onChange={e => setHeightInput(e.target.value)}
           type="text"
         />
+
         <button type="button" onClick={incrementHeight} aria-hidden>
           +
         </button>
@@ -61,7 +65,6 @@ const SizeForm = ({idx}) => {
           -
         </button>
       </label>
-
       <button type="submit">Update</button>
     </form>
   )
