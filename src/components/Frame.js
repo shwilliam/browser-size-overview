@@ -1,9 +1,7 @@
 import React, {useState} from 'react'
 import SizeForm from './SizeForm'
-import {useBrowserWindows} from '../hooks'
 
 const Frame = ({idx, src, name, width, height}) => {
-  const {setOpenWindows} = useBrowserWindows()
   const [isEditingDimensions, setIsEditingDimensions] = useState(false)
   const toggleDimensionsForm = () => setIsEditingDimensions(s => !s)
 
@@ -24,7 +22,7 @@ const Frame = ({idx, src, name, width, height}) => {
           )}
 
           <button
-            class="frame__edit-btn"
+            className="frame__edit-btn"
             type="button"
             onClick={toggleDimensionsForm}
           >

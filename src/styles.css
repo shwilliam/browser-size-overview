@@ -8,6 +8,10 @@ body {
   height: 100%;
 }
 
+p {
+  margin: 0;
+}
+
 #root {
   height: 100%;
 }
@@ -50,7 +54,7 @@ input {
 }
 
 .site__title {
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin: 0;
 }
 
@@ -59,12 +63,25 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0 1rem 0;
+  padding: 4rem 0 1rem 0;
 }
 
 .site__options {
   margin: 2rem auto;
   max-width: 600px;
+}
+
+.site__options-fieldset {
+  margin: 1rem 0;
+}
+
+.site__options-fieldset + .site__options-fieldset {
+  margin-left: 1rem;
+}
+
+.site__options-fieldset-container {
+  display: flex;
+  margin-bottom: 1.5rem;
 }
 
 .site__floating-action {
@@ -114,6 +131,7 @@ input {
 }
 
 .frame__window {
+  margin-top: 1rem;
   border: 2px solid #d2d2d2;
 }
 
