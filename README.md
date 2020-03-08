@@ -2,6 +2,8 @@
 
 > Preview your webpage in various window sizes
 
+<img src='https://user-images.githubusercontent.com/38357771/76159842-4b8e2d00-60d9-11ea-8e8f-3205eb4515df.png' alt='' width='720' />
+
 ## Development
 
 To start local development, simply install npm dependencies (`npm i`) and run `npm start`.
