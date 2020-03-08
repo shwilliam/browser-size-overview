@@ -6,6 +6,7 @@ const DEVICES = {
       name: 'iPhone 5/SE',
       width: 320,
       height: 568,
+      is_default: true,
     },
     {
       name: 'iPhone 6/7/8',
@@ -21,11 +22,13 @@ const DEVICES = {
       name: 'iPhone X/XS',
       width: 375,
       height: 812,
+      is_default: true,
     },
     {
       name: 'iPhone XS Max',
       width: 414,
       height: 896,
+      is_default: true,
     },
     {
       name: 'iPhone XR',
@@ -36,6 +39,7 @@ const DEVICES = {
       name: 'iPad',
       width: 768,
       height: 1024,
+      is_default: true,
     },
     {
       name: 'iPad Mini',
@@ -85,6 +89,7 @@ const DEVICES = {
       name: 'Laptop (MDPI)',
       width: 1280,
       height: 800,
+      is_default: true,
     },
     {
       name: 'Laptop (HiDPI)',

@@ -8,7 +8,23 @@ const OptionsForm = () => {
     setActiveUrl,
     DEVICES,
   } = useBrowserWindows()
-  const [selected, setSelected] = useState([])
+  const [selected, setSelected] = useState(
+    Object.entries(DEVICES)
+      .reduce(
+        (defaultSelected, [k, v]) => [
+          ...defaultSelected,
+          v
+            .filter(({is_default}) => !!is_default)
+            .map(({name, width, height}) => ({
+              name,
+              width,
+              height,
+            })),
+        ],
+        [],
+      )
+      .flat(),
+  )
   const [urlInput, setUrlInput] = useState('http://localhost:8080/')
 
   const handleChange = e => setUrlInput(e.target.value)
@@ -23,41 +39,46 @@ const OptionsForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        placeholder="Enter your local URL..."
-        type="text"
-        value={urlInput}
-        onChange={handleChange}
-      />
+      <label className="site__options-label">
+        <p>Development URL:</p>
 
-      {Object.entries(DEVICES).map(([k, v]) => (
-        <fieldset key={k}>
-          <legend>{k}</legend>
+        <input
+          placeholder="Enter your local URL..."
+          type="text"
+          value={urlInput}
+          onChange={handleChange}
+        />
+      </label>
 
-          {v.map(({name, width, height}, i) => (
-            <div key={name}>
-              <input
-                type="checkbox"
-                id={name}
-                name="device"
-                onChange={e =>
-                  e.target.checked
-                    ? setSelected(s => [...s, {name, width, height}])
-                    : setSelected(s => {
-                        const sCopy = [...s]
-                        sCopy.splice(i, 1)
-                        return sCopy
-                      })
-                }
-              />
+      <div className="site__options-fieldset-container">
+        {Object.entries(DEVICES).map(([k, v]) => (
+          <fieldset className="site__options-fieldset" key={k}>
+            <legend>{k}</legend>
 
-              <label htmlFor={name}>
-                {name} ({width}px x {height}px)
-              </label>
-            </div>
-          ))}
-        </fieldset>
-      ))}
+            {v.map(({name, width, height, is_default}, i) => (
+              <div key={name}>
+                <input
+                  type="checkbox"
+                  id={name}
+                  name="device"
+                  checked={is_default || selected?.some(d => d.name === name)}
+                  onChange={e =>
+                    e.target.checked
+                      ? setSelected(s => [...s, {name, width, height}])
+                      : setSelected(s => {
+                          const sCopy = [...s]
+                          sCopy.splice(i, 1)
+                          return sCopy
+                        })
+                  }
+                />
+
+                <label htmlFor={name}>{name}</label>
+              </div>
+            ))}
+          </fieldset>
+        ))}
+      </div>
 
       <button type="submit">Get started</button>
     </form>
