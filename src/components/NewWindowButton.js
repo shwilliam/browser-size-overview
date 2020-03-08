@@ -5,8 +5,7 @@ const NewWindowButton = () => {
   const {activeUrl, setOpenWindows} = useBrowserWindows()
 
   const createNewWindow = () => {
-    setOpenWindows(s => [...s, {width: 300, height: 300}])
-    // TODO: scroll to right
+    setOpenWindows(s => [{width: 300, height: 300}, ...s])
   }
 
   if (!activeUrl) return null
