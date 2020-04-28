@@ -57,23 +57,24 @@ const OptionsForm = () => {
 
             {v.map(({name, width, height, is_default}, i) => (
               <div key={name}>
-                <input
-                  type="checkbox"
-                  id={name}
-                  name="device"
-                  checked={is_default || selected?.some(d => d.name === name)}
-                  onChange={e =>
-                    e.target.checked
-                      ? setSelected(s => [...s, {name, width, height}])
-                      : setSelected(s => {
-                          const sCopy = [...s]
-                          sCopy.splice(i, 1)
-                          return sCopy
-                        })
-                  }
-                />
-
-                <label htmlFor={name}>{name}</label>
+                <label htmlFor={name}>
+                  <input
+                    type="checkbox"
+                    id={name}
+                    name="device"
+                    checked={is_default || selected?.some(d => d.name === name)}
+                    onChange={e =>
+                      e.target.checked
+                        ? setSelected(s => [...s, {name, width, height}])
+                        : setSelected(s => {
+                            const sCopy = [...s]
+                            sCopy.splice(i, 1)
+                            return sCopy
+                          })
+                    }
+                  />
+                  {name}
+                </label>
               </div>
             ))}
           </fieldset>

@@ -48,40 +48,66 @@ input {
   top: 0;
   right: 0;
   left: 0;
-  padding: 0.5rem 2rem;
+  padding: 0.25rem 0;
   background-color: #333;
   border-bottom: 1px solid #eee;
+  text-align: center;
 }
 
 .site__title {
-  font-size: 1.3rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 400;
   margin: 0;
 }
 
 .site__main {
   min-height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 0 1rem 0;
+  padding: 2rem 0 1rem 0;
 }
 
 .site__options {
   margin: 2rem auto;
+  padding: 0 2rem;
   max-width: 600px;
 }
 
-.site__options-fieldset {
-  margin: 1rem 0;
+.site__options-input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: -1px;
 }
 
-.site__options-fieldset + .site__options-fieldset {
-  margin-left: 1rem;
+.site__options-input-container {
+  justify-content: center;
+  display: flex;
+}
+
+.site__options-submit {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  white-space: nowrap;
+}
+
+.site__options-form {
+  text-align: center;
+}
+
+.site__options-fieldset {
+  min-width: 30%;
+  margin: 1rem 0;
+  padding: 0;
+  border: none;
 }
 
 .site__options-fieldset-container {
   display: flex;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 2.5rem 0;
+  text-align: left;
 }
 
 .site__floating-action {
@@ -108,7 +134,6 @@ input {
   display: flex;
   overflow-y: scroll;
   list-style: none;
-  margin: 0 1rem;
   padding: 0;
 }
 
@@ -152,4 +177,11 @@ input {
 
 .frame__dimensions-input {
   width: 50px;
+}
+
+@media only screen and (min-width: 600px) {
+  .site__options-fieldset-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
