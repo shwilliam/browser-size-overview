@@ -1,9 +1,9 @@
 import React from 'react'
-import './styles.css'
+import {NewWindowButton, OpenFrames, OptionsForm} from './components'
 import {BrowserWindowContextProvider} from './context/browser-windows'
-import {OpenFrames, NewWindowButton, OptionsForm} from './components'
+import './styles.css'
 
-const App = () => (
+export const App = () => (
   <div className="site">
     <BrowserWindowContextProvider>
       <header className="site__header">
@@ -22,5 +22,3 @@ const App = () => (
     </BrowserWindowContextProvider>
   </div>
 )
-
-export default App

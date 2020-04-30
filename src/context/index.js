@@ -1,5 +1,4 @@
-import BrowserWindowContext, {
+export {
+  BrowserWindowContext,
   BrowserWindowContextProvider,
 } from './browser-windows'
-
-export {BrowserWindowContext, BrowserWindowContextProvider}

@@ -1,34 +1,32 @@
 import React, {useState} from 'react'
+import {add, subtract, update, findIndex, propEq, __} from 'ramda'
 import {useBrowserWindows} from '../hooks'
 
 const STEP_SIZE = 10
 
-const SizeForm = ({idx, onSubmit}) => {
+export const SizeForm = ({name, onSubmit, width, height}) => {
   const {openWindows, setOpenWindows} = useBrowserWindows()
 
-  const [widthInput, setWidthInput] = useState(openWindows[idx]?.width)
-  const [heightInput, setHeightInput] = useState(openWindows[idx]?.height)
+  const [widthInput, setWidthInput] = useState(width)
+  const [heightInput, setHeightInput] = useState(height)
 
   const handleSubmit = e => {
     if (e) e.preventDefault()
 
-    setOpenWindows(s => {
-      const sCopy = [...s]
-      sCopy[idx] = {
+    setOpenWindows(
+      update(findIndex(propEq('name', name), openWindows), {
         width: widthInput,
         height: heightInput,
-      }
-
-      return sCopy
-    })
+      }),
+    )
 
     onSubmit()
   }
 
-  const incrementWidth = () => setWidthInput(s => s + STEP_SIZE)
-  const decrementWidth = () => setWidthInput(s => s - STEP_SIZE)
-  const incrementHeight = () => setHeightInput(s => s + STEP_SIZE)
-  const decrementHeight = () => setHeightInput(s => s - STEP_SIZE)
+  const incrementWidth = () => setWidthInput(add(STEP_SIZE))
+  const decrementWidth = () => setWidthInput(subtract(__, STEP_SIZE))
+  const incrementHeight = () => setHeightInput(add(STEP_SIZE))
+  const decrementHeight = () => setHeightInput(subtract(__, STEP_SIZE))
 
   return (
     <form className="frame__dimensions-form" onSubmit={handleSubmit}>
@@ -69,5 +67,3 @@ const SizeForm = ({idx, onSubmit}) => {
     </form>
   )
 }
-
-export default SizeForm

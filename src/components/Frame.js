@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import SizeForm from './SizeForm'
+import {not} from 'ramda'
+import {SizeForm} from './'
 
-const Frame = ({idx, src, name, width, height}) => {
+export const Frame = ({idx, src, name, width, height}) => {
   const [isEditingDimensions, setIsEditingDimensions] = useState(false)
-  const toggleDimensionsForm = () => setIsEditingDimensions(s => !s)
+  const toggleDimensionsForm = () => setIsEditingDimensions(not)
 
   return (
     <>
@@ -12,7 +13,12 @@ const Frame = ({idx, src, name, width, height}) => {
 
         <div className="frame__info">
           {isEditingDimensions ? (
-            <SizeForm idx={idx} onSubmit={toggleDimensionsForm} />
+            <SizeForm
+              name={name}
+              width={width}
+              height={height}
+              onSubmit={toggleDimensionsForm}
+            />
           ) : (
             <>
               <p>
@@ -44,5 +50,3 @@ const Frame = ({idx, src, name, width, height}) => {
     </>
   )
 }
-
-export default Frame

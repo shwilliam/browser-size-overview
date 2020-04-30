@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import useBrowserWindows from '../hooks/useBrowserWindows'
+import {useBrowserWindows} from '../hooks'
 
-const ActiveUrlForm = () => {
+export const ActiveUrlForm = () => {
   const {setActiveUrl} = useBrowserWindows()
   const [urlInput, setUrlInput] = useState('')
 
@@ -16,7 +16,7 @@ const ActiveUrlForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        placeholder="Enter your local URL..."
+        placeholder="Development URL..."
         type="text"
         value={urlInput}
         onChange={handleChange}
@@ -26,5 +26,3 @@ const ActiveUrlForm = () => {
     </form>
   )
 }
-
-export default ActiveUrlForm

@@ -1,3 +1,1 @@
-import useBrowserWindows from './useBrowserWindows'
-
-export {useBrowserWindows}
+export * from './useBrowserWindows'

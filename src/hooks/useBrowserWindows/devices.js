@@ -1,6 +1,6 @@
 // source: firefox browser dev tools
 
-const DEVICES = {
+export const DEVICES = {
   iOS: [
     {
       name: 'iPhone 5/SE',
@@ -22,7 +22,6 @@ const DEVICES = {
       name: 'iPhone X/XS',
       width: 375,
       height: 812,
-      is_default: true,
     },
     {
       name: 'iPhone XS Max',
@@ -67,6 +66,7 @@ const DEVICES = {
       name: 'Galaxy S5',
       width: 360,
       height: 640,
+      is_default: true,
     },
     {
       name: 'Galaxy S9/S9 Plus',
@@ -98,5 +98,3 @@ const DEVICES = {
     },
   ],
 }
-
-export default DEVICES

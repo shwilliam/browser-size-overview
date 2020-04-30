@@ -1,8 +1,8 @@
 import React, {createContext, useState} from 'react'
 
-const BrowserWindowContext = createContext({})
+export const BrowserWindowContext = createContext({})
 
-const BrowserWindowContextProvider = ({children}) => {
+export const BrowserWindowContextProvider = ({children}) => {
   const [openWindows, setOpenWindows] = useState()
   const [activeUrl, setActiveUrl] = useState()
 
@@ -14,6 +14,3 @@ const BrowserWindowContextProvider = ({children}) => {
     </BrowserWindowContext.Provider>
   )
 }
-
-export default BrowserWindowContext
-export {BrowserWindowContextProvider}

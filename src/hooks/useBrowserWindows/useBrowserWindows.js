@@ -1,13 +1,17 @@
 import {useContext} from 'react'
 import {BrowserWindowContext} from '../../context'
-import DEVICES from './devices'
+import {DEVICES} from './devices'
 
-const useBrowserWindows = () => {
+export const useBrowserWindows = () => {
   const {activeUrl, setActiveUrl, openWindows, setOpenWindows} = useContext(
     BrowserWindowContext,
   )
 
-  return {activeUrl, setActiveUrl, openWindows, setOpenWindows, DEVICES}
+  return {
+    activeUrl,
+    setActiveUrl,
+    openWindows,
+    setOpenWindows,
+    DEVICES,
+  }
 }
-
-export default useBrowserWindows

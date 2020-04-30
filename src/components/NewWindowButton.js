@@ -1,11 +1,12 @@
 import React from 'react'
+import {append} from 'ramda'
 import {useBrowserWindows} from '../hooks'
 
-const NewWindowButton = () => {
+export const NewWindowButton = () => {
   const {activeUrl, setOpenWindows} = useBrowserWindows()
 
   const createNewWindow = () => {
-    setOpenWindows(s => [{width: 300, height: 300}, ...s])
+    setOpenWindows(append({width: 300, height: 300}))
   }
 
   if (!activeUrl) return null
@@ -17,5 +18,3 @@ const NewWindowButton = () => {
     </button>
   )
 }
-
-export default NewWindowButton
