@@ -14,7 +14,7 @@ export const OpenFrames = () => {
   if (!activeUrl || !openWindows) return null
 
   return (
-    <ul className="frame__list">
+    <ul className="frame__list" id="frame__list">
       {sortedOpenWindows.map((opts, i) => (
         <li key={i} className="frame__container">
           <Frame idx={i} src={activeUrl} {...opts} />
